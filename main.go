@@ -79,7 +79,7 @@ func startTraining(charName, charClass string) string {
 	var cmd string
 	for cmd != "skip" {
 		fmt.Print("Введи команду: ")
-		fmt.Scanf("%s\n", &cmd)
+		_, _ = fmt.Scan(&cmd)
 
 		if cmd == "attack" {
 			fmt.Println(attack(charName, charClass))
@@ -98,13 +98,13 @@ func startTraining(charName, charClass string) string {
 }
 
 // обратите внимание на имя функции и имена переменных
-func choiseCharClass() string {
+func choiceCharClass() string {
 	var approveChoice string
 	var charClass string
 
 	for approveChoice != "y" {
 		fmt.Print("Введи название персонажа, за которого хочешь играть: Воитель — warrior, Маг — mage, Лекарь — healer: ")
-		fmt.Scanf("%s\n", &charClass)
+		_, _ = fmt.Scan(&charClass)
 
 		if charClass == "warrior" {
 			fmt.Println("Воитель — дерзкий воин ближнего боя. Сильный, выносливый и отважный.")
@@ -119,7 +119,7 @@ func choiseCharClass() string {
 		}
 
 		fmt.Print("Нажми (Y), чтобы подтвердить выбор, или любую другую кнопку, чтобы выбрать другого персонажа: ")
-		fmt.Scanf("%s\n", &approveChoice)
+		_, _ = fmt.Scan(&approveChoice)
 		approveChoice = strings.ToLower(approveChoice)
 	}
 
@@ -133,14 +133,14 @@ func main() {
 
 	var charName string
 	fmt.Print("...назови себя: ")
-	fmt.Scanf("%s\n", &charName)
+	_, _ = fmt.Scan(&charName)
 
 	fmt.Printf("Здравствуй, %s\n", charName)
 	fmt.Println("Сейчас твоя выносливость — 80, атака — 5 и защита — 10.")
 	fmt.Println("Ты можешь выбрать один из трёх путей силы:")
 	fmt.Println("Воитель, Маг, Лекарь")
 
-	charClass := choiseCharClass()
+	charClass := choiceCharClass()
 
 	fmt.Println(startTraining(charName, charClass))
 }
